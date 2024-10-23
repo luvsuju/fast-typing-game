@@ -9,7 +9,6 @@ import TypingHome from "./Components/TypingHome";
 function App() {
   return (
     <>
-      {/* <Test/> */}
 
       <BrowserRouter>
         <TypingHome />
