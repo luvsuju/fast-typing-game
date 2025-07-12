@@ -11,8 +11,10 @@ import socketConnection from "./socketConnection/socketConnection.js";
 
 const app = Express();
 
-app.use(cors({ origin: "*" }));
 
+app.use(cors({
+  origin: "https://fast-typing-game.vercel.app", // ✅ your frontend domain
+}));
 app.get("/check", (req, res) => {
   res.send("welcome to fastf");
 });

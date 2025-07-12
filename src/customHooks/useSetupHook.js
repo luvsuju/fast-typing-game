@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 
 // const socket = new io("https://fastf.onrender.com");
 // for local testing
-const socket = new io("http://localhost:5000");
+const socket = new io("process.env.REACT_APP_API_URL");
 
 const useSocketHook = () => {
   useEffect(() => {

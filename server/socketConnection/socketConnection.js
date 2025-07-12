@@ -1,14 +1,14 @@
 import { Server } from "socket.io";
 
-// import cors from "cors";
-
-export default (httpServer) => {
-  const io = new Server(httpServer, {
+const socketConnection = (server) => {
+  const io = new Server(server, {
     cors: {
-      origin: "*",
+      origin: "https://fast-typing-game.vercel.app", // ✅ your frontend domain
+      methods: ["GET", "POST"],
     },
   });
 
-  //   const io = new Server(httpServer);
   return io;
 };
+
+export default socketConnection;
