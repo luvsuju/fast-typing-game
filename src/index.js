@@ -7,7 +7,6 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./redux/app/store.js";
 import axios from "axios";
 
-const API = process.env.REACT_APP_API_URL;
 
 axios.get(`${API}/check`)
   .then(res => {

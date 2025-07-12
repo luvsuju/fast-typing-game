@@ -13,7 +13,7 @@ const app = Express();
 
 
 app.use(cors({
-  origin: "https://fast-typing-game.vercel.app", // ✅ your frontend domain
+  origin: "https://fast-typing-game-9au3-ml6hpzdao-sujals-projects-d59713cb.vercel.app/", // ✅ your frontend domain
 }));
 app.get("/check", (req, res) => {
   res.send("welcome to fastf");
