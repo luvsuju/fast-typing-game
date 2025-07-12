@@ -1,18 +1,18 @@
 import "../StyleSheets/TypingHome.css";
-
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TypingHome = () => {
   return (
     <>
       <div className="home-navbar-container">
         <div className="home-navbar-left-container">
-          <a href="/">Typing Test</a>
+          <Link to="/">Typing Test</Link>
         </div>
         <div className="home-navbar-right-container">
-          <p>Home</p>
-          <p>About</p>
-          <p>Contact Us</p>
+          <p><Link to="/">Home</Link></p>
+          <p><Link to="/Abouts">About</Link></p>
+          <p><Link to="/ContactUs">Contact Us</Link></p>
         </div>
       </div>
     </>

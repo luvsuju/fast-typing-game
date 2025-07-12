@@ -1,27 +1,21 @@
 import "../StyleSheets/PlayersInfoContainer.css";
 
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   addPlayers,
   setAssignedProfile,
 } from "../redux/app/fetures/playersSlice";
-import { assignProfile, getMyProfile } from "../utils/multiplayerFunctions";
+import { getMyProfile } from "../utils/multiplayerFunctions";
 import { useDispatch, useSelector } from "react-redux";
 
 import Performance from "../Assets/performance.svg";
-import { Profile } from "../Assets";
 import { socket } from "../customHooks/useSetupHook";
 import { useParams } from "react-router-dom";
 import useSocketroom from "../customHooks/useSocketroom";
 
-// import Profile from "../Assets/Profile.jpg";
-
-// import Profile from "../Assets/images/Vector (1).svg";
-
 const PlayersInfoContainer = () => {
   const { id } = useParams();
   const [players, setPlayers] = useState([]);
-  // const [assignProfile, setAssignedProfile] = useState({});
   const assignProfile = useSelector(
     (state) => state.rootReducer.playersInfo.assignProfile
   );
@@ -35,11 +29,10 @@ const PlayersInfoContainer = () => {
     setPlayers(data.members);
     dispatch(addPlayers({ players: data?.members }));
     dispatch(setAssignedProfile({ data: data.assignedProfiles }));
-    // const object = assignProfile(profileArray, players);
   });
 
   function convertToSocketId(str) {
-    const result = str.replace(new RegExp("room", "g"), ""); // remove all occurrences of the target string
+    const result = str.replace(new RegExp("room", "g"), ""); 
     return result;
   }
   const startGame = (roomId) => {
@@ -67,12 +60,11 @@ const PlayersInfoContainer = () => {
         {players.map((elm) => (
           <div
             className={
-              elm == socket.id ? "user-container-active" : "user-container"
+              elm === socket.id ? "user-container-active" : "user-container"
             }
           >
             <div className="player-stat-card">
               <div className="player-profile-conatainer">
-                {/* {console.log(getMyProfile(assignProfile, elm))} */}
                 <img src={getMyProfile(assignProfile, elm)} alt="" />
               </div>
               <div className="player-stat-wpm-conatainer">
@@ -85,19 +77,7 @@ const PlayersInfoContainer = () => {
           </div>
         ))}
       </div>
-      {/* 
-        <div className="players-profile-base-container">
-          {convertToSocketId(id) == socket.id && (
-            <button onClick={() => startGame(id)} id="start-button">
-              Start
-            </button>
-          )}
-          {players.map(() => (
-            <div className="players-profile-card">
-              <p className="inner-profile-container"></p>
-            </div>
-          ))}
-        </div> */}
+      
     </>
   );
 };

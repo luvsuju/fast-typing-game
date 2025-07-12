@@ -7,13 +7,12 @@ import {
   setStart,
   setStop,
 } from "../redux/app/fetures/playersSlice";
-import react, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import PlayersInfoContainer from "./PlayersInfoContainer";
 import Refresh from "../Assets/refresh.png";
 import ScoreBoard from "./ScoreBoard";
-import { TestConsole } from "../utils/multiplayerFunctions";
 import { socket } from "../customHooks/useSetupHook.js";
 import { useParams } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import "../StyleSheets/MultiPlayerHeader.css";
 
-import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useSocketHook, { socket } from "../customHooks/useSetupHook.js";
 
 import useSocketroom from "../customHooks/useSocketroom.js";
